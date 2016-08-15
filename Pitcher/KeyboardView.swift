@@ -33,7 +33,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         var count = level.answer.length
         
         while(count >= 0 ){
-            count--
+            count -= 1
             answerButtons.append(nil)
         }
         initAnswerButtons()
@@ -52,7 +52,10 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         
         var splited = level.answer.componentsSeparatedByString(".")
         if(splited.count == 1){
-            initAnswerButtonsInLine(0, converter: converter, array: Array(level.answer), yOffset: (frame.height / 4 - converter.mHeight/2 ))
+
+            
+            let array : [Character] = Array.init(arrayLiteral: level.answer)
+            initAnswerButtonsInLine(0, converter: converter, array: Array(arrayLiteral : level.answer), yOffset: (frame.height / 4 - converter.mHeight/2 ))
         }
         else{
             initAnswerButtonsInLine(0, converter: converter, array: Array(splited[0]), yOffset: (frame.height / 4 - converter.mHeight  ))
@@ -63,9 +66,9 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
     }
     
     func initAnswerButtonsInLine(startingIndex : Int , converter : SizeConvertor , array : [Character] , yOffset : CGFloat){
-        var middle = DeviceDimensions.widht/2
+        let middle = DeviceDimensions.widht/2
         var xAllwaysOffset = DeviceDimensions.widht * 0.002
-        var xOffset = DeviceDimensions.widht * 0.001
+        let xOffset = DeviceDimensions.widht * 0.001
         var leftSpaceOffset = CGFloat(0)
         var rightSpaceOffset = CGFloat(0)
         if(array.count % 2 == 1){
@@ -79,8 +82,8 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
                 state = .Space
             }
             
-            var frame = CGRect(x: middle - converter.mWidth/2, y: yOffset, width: width, height: converter.mHeight)
-            var answerButton = AnswerButton(frame: frame , keyboardView: self, state: state, index: startingIndex + array.count/2 , answerButtonDelegate: self , currectCharacter: array[array.count/2])
+            let frame = CGRect(x: middle - converter.mWidth/2, y: yOffset, width: width, height: converter.mHeight)
+            let answerButton = AnswerButton(frame: frame , keyboardView: self, state: state, index: startingIndex + array.count/2 , answerButtonDelegate: self , currectCharacter: array[array.count/2])
             answerButtons[answerButton.index] = answerButton
             self.addSubview(answerButton)
         }
@@ -89,7 +92,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         var chapiTemp = 0
         var even = 0
         if(array.count % 2 == 0){
-            j++
+            j += 1
             even = 1
         }
         else{
@@ -97,11 +100,11 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
             
         }
         
-        var indexMiddle = array.count / 2
+        let indexMiddle = array.count / 2
         
         while(   j > 0 && i < array.count ){
-            i++
-            j--
+            i += 1
+            j -= 1
             
             var leftWidth = converter.mWidth
             var rightWidht = converter.mWidth
@@ -117,11 +120,11 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
                 leftWidth = converter.mWidth/2
                 leftState = .Space
             }
-            var rightFrame = CGRect(x: xAllwaysOffset + rightSpaceOffset +  middle + CGFloat(i - indexMiddle - 1) * (converter.mWidth + xOffset), y: yOffset, width: rightWidht, height: converter.mHeight  )
-            var leftFrame = CGRect(x: middle - xAllwaysOffset - leftSpaceOffset - CGFloat(indexMiddle - j + 1  - chapiTemp) * (converter.mWidth + xOffset), y: yOffset, width: leftWidth, height: converter.mHeight )
+            let rightFrame = CGRect(x: xAllwaysOffset + rightSpaceOffset +  middle + CGFloat(i - indexMiddle - 1) * (converter.mWidth + xOffset), y: yOffset, width: rightWidht, height: converter.mHeight  )
+            let leftFrame = CGRect(x: middle - xAllwaysOffset - leftSpaceOffset - CGFloat(indexMiddle - j + 1  - chapiTemp) * (converter.mWidth + xOffset), y: yOffset, width: leftWidth, height: converter.mHeight )
             
-            var tempRight = AnswerButton(frame: rightFrame, keyboardView: self, state: rightState, index: startingIndex + i - even , answerButtonDelegate: self , currectCharacter: array[i - even] )
-            var tempLeft = AnswerButton(frame: leftFrame, keyboardView: self, state: leftState, index: startingIndex + j - even , answerButtonDelegate: self, currectCharacter: array[j - even] )
+            let tempRight = AnswerButton(frame: rightFrame, keyboardView: self, state: rightState, index: startingIndex + i - even , answerButtonDelegate: self , currectCharacter: array[i - even] )
+            let tempLeft = AnswerButton(frame: leftFrame, keyboardView: self, state: leftState, index: startingIndex + j - even , answerButtonDelegate: self, currectCharacter: array[j - even] )
             
             
             answerButtons[tempRight.index] = tempRight
@@ -154,7 +157,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         let xOffsetAllways = (  DeviceDimensions.widht - xOffset  -  CGFloat(7) * ( converter.mWidth  + xOffset)
             )/2
         
-        var temp = Array(level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil).stringByReplacingOccurrencesOfString(" ", withString: "", options: .LiteralSearch, range: nil))
+        var temp = Array(arrayLiteral: level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil).stringByReplacingOccurrencesOfString(" ", withString: "", options: .LiteralSearch, range: nil))
         var allArray = Array(allStrings)
         srand(UInt32(level.levelID))
         
@@ -199,7 +202,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
     func keyClicked(index: Int) {
         
         
-        var ansIndex = getFirstEmptyIndex()
+        let ansIndex = getFirstEmptyIndex()
         if(ansIndex == -1){
             if(guessIsRight()){
                 keyboardViewDelegate?.allClickedRight()
@@ -258,7 +261,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         for temp in answerButtons{
             if let ans = temp {
                 if ans.state == AnswerState.Empty {
-                    res++
+                    res += 1
                 }
             }
         }
@@ -284,7 +287,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         for temp in answerButtons{
             if let ans = temp {
                 if (ans.state == AnswerState.Empty || ans.state == AnswerState.Occupied) {
-                    c++
+                    c += 1
                 }
             }
         }
@@ -297,7 +300,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         var c = 0
         for temp in keyButtons{
                 if (temp.state != KeyState.Removed) {
-                    c++
+                    c += 1
                 }
             
         }
@@ -310,7 +313,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
     func cheatWithSkipLevel(){
         var c = answerButtons.count
         while( c != 0){
-            c--
+            c -= 1
             cheatWithShowOne()
         }
         
@@ -320,7 +323,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         var res = 0
         for butt in answerButtons {
             if butt?.currectCharacter == char {
-                res++
+                res += 1
             }
         }
         return res
@@ -331,15 +334,15 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         var res = 0
         for butt in keyButtons {
             if butt.character == char && butt.state != KeyState.Removed {
-                res++
+                res += 1
             }
         }
         return res
     }
     
     func cheatWithRemoveSome()->Bool{
-        var answersLen = getNotCheatedCount()
-        var notCheatedKeyButtons = getNotCheatedKeyButtonCount()
+        let answersLen = getNotCheatedCount()
+        let notCheatedKeyButtons = getNotCheatedKeyButtonCount()
         
         if notCheatedKeyButtons < answersLen {
             return false
@@ -355,12 +358,12 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
             while(r < 20){
                 if(keyButtons[r].state != KeyState.Removed && numberOfRemainigCharacterInButtons(keyButtons[r].character) > numberOfCharacterInAnswer(keyButtons[r].character) ) {
                     keyButtons[r].setRemoved()
-                    count--
+                    count -= 1
                     if(count == 0 ){
                         break
                     }
                 }
-                r++
+                r += 1
             }
             r = 0
             
@@ -375,7 +378,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
     
     func cheatWithShowOne() ->Bool{
         
-        var notCheatedCount = getNotCheatedCount()
+        let notCheatedCount = getNotCheatedCount()
         if(notCheatedCount == 0){
             return false
         }
@@ -395,13 +398,13 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         //                }
         //            }
         //        }
-        var r = Int(arc4random()) % notCheatedCount
+        let r = Int(arc4random()) % notCheatedCount
         var c = 0
         for temp in answerButtons{
             if let ans = temp {
                 if ans.state == AnswerState.Empty || ans.state == AnswerState.Occupied{
                     if(c == r){
-                        var butt = findKeyButtonWithCharacter(ans.currectCharacter)
+                        let butt = findKeyButtonWithCharacter(ans.currectCharacter)
 //                        if(ans.state == AnswerState.Occupied){
 //                            ans.clearAnswerButton(keyButtons[ans.keyButtonIndex!])
 //                        }
@@ -412,7 +415,7 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
                         }
                         return true
                     }
-                    c++
+                    c += 1
                 }
             }
         }

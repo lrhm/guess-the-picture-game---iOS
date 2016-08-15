@@ -37,14 +37,14 @@ class LevelViewController: UIViewController , KeyboardViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     func allClickedRight(){
-        println("all is right")
+        print("all is right")
         levelSolved()
     }
     
     func levelSolved(){
         LevelManager.levelSolved(level!.levelID)
-        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        var nextVC = storyBoard.instantiateViewControllerWithIdentifier("LevelVC") as! LevelViewController
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyBoard.instantiateViewControllerWithIdentifier("LevelVC") as! LevelViewController
         nextVC.level = LevelManager.list[level!.levelID + 1]
 //        self.navigationController?.popViewControllerAnimated(false)
         self.navigationController?.pushViewController(nextVC, animated: true)

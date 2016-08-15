@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("did enter forgroudn")
         isInBackground = false
         if(rootVC?.animationTimer == nil){
-      rootVC?.animationTimer =  NSTimer.scheduledTimerWithTimeInterval(10, target: rootVC!, selector: "rotateAnimation", userInfo: nil, repeats: true  )
+      rootVC?.animationTimer =  NSTimer.scheduledTimerWithTimeInterval(10, target: rootVC!, selector: Selector("rotateAnimation"), userInfo: nil, repeats: true  )
         }
     }
 

@@ -24,7 +24,7 @@ struct LevelManager {
     
     static func getCoin()->Int{
         var coins = 200
-        if var temp = NSUserDefaults.standardUserDefaults().objectForKey("coins_count") as? Int {
+        if let temp = NSUserDefaults.standardUserDefaults().objectForKey("coins_count") as? Int {
             coins = temp
         }
         return coins
@@ -38,7 +38,7 @@ struct LevelManager {
     
     
     static func spendCoin(amount : Int) -> Bool{
-        var coin = getCoin()
+        let coin = getCoin()
         if(amount > coin){
             return false
         }
@@ -50,7 +50,7 @@ struct LevelManager {
     }
     
     static func getLastLevelSolvedID() -> Int{
-        var defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
         if let temp = defaults.valueForKey("lastLevelSolved") as? Int{
             return temp
@@ -61,7 +61,7 @@ struct LevelManager {
     }
     
     static func unlockNewLevel(){
-        var defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         earnCoins(60)
         defaults.setInteger(getLastLevelSolvedID() + 1, forKey: "lastLevelSolved")
     }

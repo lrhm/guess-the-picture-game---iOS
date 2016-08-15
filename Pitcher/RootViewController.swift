@@ -10,7 +10,7 @@ import UIKit
 class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScrollViewDelegate{
     
     var pageViewController: UIPageViewController?
-    var coinBox : CoinView?
+    //var coinBox : CoinView?
     var sliderBackground: UIImageView!
     var slider: SliderView!
     var scrollView : UIScrollView!
@@ -46,7 +46,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         
         for child in pageViewController!.view.subviews{
             if(child.isKindOfClass(UIScrollView)){
-                println("found")
+                print("found")
                 
                 (                        child as! UIScrollView).delegate = self
                 scrollView = child as!UIScrollView
@@ -63,7 +63,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         
         // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
         
-        var frame : CGRect = CGRect(x: 0, y: DeviceDimensions.height / 4, width: DeviceDimensions.widht, height: DeviceDimensions.height / 2)
+        let frame : CGRect = CGRect(x: 0, y: DeviceDimensions.height / 4, width: DeviceDimensions.widht, height: DeviceDimensions.height / 2)
         
         self.pageViewController!.view.frame = frame
         
@@ -79,16 +79,16 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     
 
     override func viewWillAppear(animated: Bool) {
-        println("view will apeear")
+        print("view will apeear")
         isInView = true
-        animationTimer =  NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "rotateAnimation", userInfo: nil, repeats: true  )
-        self.coinBox?.updateText()
+        animationTimer =  NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(RootViewController.rotateAnimation), userInfo: nil, repeats: true  )
+   //     self.coinBox?.updateText()
         super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        println("view will dis appear")
+        print("view will dis appear")
         isInView = false
         animationTimer.invalidate()
         animationTimer = nil
@@ -117,7 +117,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     func pageViewController(pageViewController: UIPageViewController, spineLocationForInterfaceOrientation orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation {
         if (orientation == .Portrait) || (orientation == .PortraitUpsideDown) || (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             // In portrait orientation or on iPhone: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
-            let currentViewController = self.pageViewController!.viewControllers[0] as! UIViewController
+            let currentViewController = self.pageViewController!.viewControllers![0] as UIViewController
             let viewControllers = [currentViewController]
             self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: {done in })
             
@@ -126,8 +126,8 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         }
         
         // In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
-        let currentViewController = self.pageViewController!.viewControllers[0] as! ListViewController
-        var viewControllers: [AnyObject]
+        let currentViewController = self.pageViewController!.viewControllers![0] as! ListViewController
+        var viewControllers: [UIViewController]
         
         let indexOfCurrentViewController = self.modelController.indexOfViewController(currentViewController)
         if (indexOfCurrentViewController == 0) || (indexOfCurrentViewController % 2 == 0) {
@@ -146,8 +146,8 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         slider = SliderView()
         sliderBackground = UIImageView()
         //         var trans = CGAffineTransformRotate(nil, M_PI)
-        var imageBackgorundSlider = UIImage(named: "seek_back")
-        var converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
+        let imageBackgorundSlider = UIImage(named: "seek_back")
+        let converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
         let width = (CGFloat(DeviceDimensions.widht) * 0.05 ) * CGFloat(4) + ( CGFloat(4) * CGFloat(converter.mWidth ))
         let frameOfSlider = CGRect(x: CGFloat(DeviceDimensions.widht) * 0.05 , y: CGFloat(DeviceDimensions.height) * 0.839, width: width , height: CGFloat(DeviceDimensions.height) * 0.1 )
         let frameOfSliderBG = CGRect(x: CGFloat(DeviceDimensions.widht) * 0.05 , y: CGFloat(DeviceDimensions.height) * 0.833, width: width , height: CGFloat(DeviceDimensions.height) * 0.1 )
@@ -159,21 +159,21 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         sliderBackground.contentMode = UIViewContentMode.ScaleToFill
         sliderBackground.image = imageBackgorundSlider
         let heightOfThumb : Int = Int(DeviceDimensions.height * 0.11)
-        var thumbImage = ImageManager.loadScaledImageByHeight("thumb", height: heightOfThumb)
+        let thumbImage = ImageManager.loadScaledImageByHeight("thumb", height: heightOfThumb)
         slider.setThumbImage(thumbImage, forState: UIControlState.Normal)
         
-        var minImage = UIImage(named: "empty")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
-        var maxImage = UIImage(named: "empty")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+        let minImage = UIImage(named: "empty")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
+        _ = UIImage(named: "empty")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0))
         slider.setMinimumTrackImage(minImage, forState: .Normal)
         slider.setMaximumTrackImage(minImage, forState: .Normal)
-        slider.addTarget(self, action: "sliderDidChange", forControlEvents: UIControlEvents.ValueChanged)
+        slider.addTarget(self, action: #selector(RootViewController.sliderDidChange), forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(sliderBackground)
         self.view.addSubview(slider)
         
         
         let widthPageNum = DeviceDimensions.widht/3
         
-        var pageNumFrame = CGRect(x: DeviceDimensions.widht/2 - widthPageNum/2, y: DeviceDimensions.height/2 - widthPageNum/2, width: widthPageNum, height: widthPageNum)
+        let pageNumFrame = CGRect(x: DeviceDimensions.widht/2 - widthPageNum/2, y: DeviceDimensions.height/2 - widthPageNum/2, width: widthPageNum, height: widthPageNum)
         
         pageNumLabel = UILabel(frame: pageNumFrame)
         pageNumLabel.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
@@ -214,12 +214,12 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     func scrollTo(index : Int){
         let lastPage = currentPage
         currentPage = index
-        let index2 = ( pageViewController!.viewControllers.last as! ListViewController ).pageNumber!
+        let index2 = ( pageViewController!.viewControllers!.last as! ListViewController ).pageNumber!
         
         if(index == modelController.pageCount){
             
             
-            currentPage--
+            currentPage -= 1
             
             if(index2  == modelController.pageCount - 1){
                 return
@@ -250,7 +250,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     //    }
     
     func initBG(){
-        var bgImageView = UIImageView(frame: self.view.bounds)
+        let bgImageView = UIImageView(frame: self.view.bounds)
         bgImageView.contentMode = UIViewContentMode.Center
         bgImageView.image = ImageManager.loadScaledImageByHeight("bg", height: Int(DeviceDimensions.height))
         
@@ -260,14 +260,14 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     
     func initCoinBox(){
         
-        var converter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
+        _ = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
         
-        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
+//        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
+//        
+//        self.view.addSubview(coinBox!)
         
-        self.view.addSubview(coinBox!)
         
-        
-        var logoConverter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.35 , baseHeight: 226, baseWidth: 512)
+        let logoConverter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.35 , baseHeight: 226, baseWidth: 512)
         
         icon = UIImageView(frame: CGRect(x: DeviceDimensions.widht * 0.9 - logoConverter.mWidth, y: DeviceDimensions.height * 0.07  , width: logoConverter.mWidth, height: logoConverter.mHeight ))
         icon.contentMode = UIViewContentMode.ScaleAspectFit
@@ -283,7 +283,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     var start : NSDate!
     
     func setLabelHidden(){
-        var end = NSDate()
+        let end = NSDate()
         
         if(end.timeIntervalSinceDate(start) > 0.5){
             pageNumLabel.hidden = true
@@ -292,7 +292,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "setLabelHidden", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(RootViewController.setLabelHidden), userInfo: nil, repeats: false)
         if(pageNumLabel.text != "\(Int(slider.value)+1)"){
             pageNumLabel.text = "\(Int(slider.value)+1)"}
         start = NSDate()
@@ -303,10 +303,10 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
             return
         }
         
-        let index = ( pageViewController!.viewControllers.last as! ListViewController ).pageNumber!
+//        let index = ( pageViewController!.viewControllers!.last as! ListViewController ).pageNumber!
         //        let indexFloat = Float(index)
         //
-        var offset = Float( ( scrollView.contentOffset.x - DeviceDimensions.widht ) / DeviceDimensions.widht)
+        let offset = Float( ( scrollView.contentOffset.x - DeviceDimensions.widht ) / DeviceDimensions.widht)
         
         if(offset <= -1 || offset >= 1 ){
             originalOffset = -10
@@ -338,7 +338,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         }
        
         
-        println("rotate anime")
+        print("rotate anime")
         UIView.animateWithDuration( 1.0 ,
             animations: { self.icon.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_4/4)) } ,
             completion: { (data : Bool ) in
@@ -365,7 +365,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
 }
 extension Array {
     mutating func removeObject<U: Equatable>(object: U) -> Bool {
-        for (idx, objectToCompare) in enumerate(self) {
+        for (idx, objectToCompare) in enumerate() {
             if let to = objectToCompare as? U {
                 if object == to {
                     self.removeAtIndex(idx)

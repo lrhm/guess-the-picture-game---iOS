@@ -18,11 +18,11 @@ class ListViewController: UIViewController  {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if(rootVC == nil){
-            println("rootVC is nil")
+            print("rootVC is nil")
         }
         self.view.gestureRecognizers = rootVC?.gestureRecognizers
-        var converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
-        var cageImage = ImageManager.loadScaledImage(forList: "cage", Height: Int(converter.mHeight))
+        let converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
+        let cageImage = ImageManager.loadScaledImage(forList: "cage", Height: Int(converter.mHeight))
         var lockImage = UIImage(named: "lock")
 //        [inputPrompt setBackgroundColor:[[UIColor darkGrayColor] colorWithAlphaComponent:0.5]];
 
@@ -41,7 +41,7 @@ class ListViewController: UIViewController  {
                 
                 var cageFrame = CGRect(
                     x: x, y: y, width: converter.mWidth, height: converter.mHeight)
-                var cageView = UIImageView(frame: cageFrame )
+                let cageView = UIImageView(frame: cageFrame )
                 cageView.contentMode = UIViewContentMode.ScaleAspectFit
                 cageView.image = cageImage
                 viewHolder.addSubview(cageView)
@@ -52,7 +52,7 @@ class ListViewController: UIViewController  {
                 x =  (CGFloat(DeviceDimensions.widht) * 0.05 ) * CGFloat(i + 1) + ( CGFloat(i) * CGFloat(converter.mWidth )) + (CGFloat(DeviceDimensions.widht) * 0.01 )
                 y =  (CGFloat(DeviceDimensions.height) * 0.02 ) * CGFloat(j+1) + ( CGFloat(j) * CGFloat(converter.mHeight )) +  (CGFloat(DeviceDimensions.height) * 0.007 )
                 
-                var levelThumbFrame = CGRect(
+                let levelThumbFrame = CGRect(
                     x: x, y: y, width: converter.mWidth * 0.88 , height: converter.mHeight * 0.85)
                 
                 let levelData = LevelManager.list[pageNumber! * 16 + j * 4 + i]
@@ -60,11 +60,11 @@ class ListViewController: UIViewController  {
                 if(!levelData.isLocked()){
                     imageNamed = levelData.picture
                 }
-                var levelThumbnail = ImageManager.loadScaledImage(forList: imageNamed, Height: Int(converter.mHeight * 0.85))
+                let levelThumbnail = ImageManager.loadScaledImage(forList: imageNamed, Height: Int(converter.mHeight * 0.85))
                 
                 // UIImage(named: levelData.picture   )
                 
-                var lockView = UIImageView(frame: levelThumbFrame)
+                let lockView = UIImageView(frame: levelThumbFrame)
                 lockView.clipsToBounds = true
                 lockView.contentMode = UIViewContentMode.Center
 //                lockView.alpha = CGFloat(0.7)
@@ -73,8 +73,8 @@ class ListViewController: UIViewController  {
 //                lockView.
                 
             
-                var buttonClick : UIButton = UIButton(frame : levelThumbFrame)
-                var tapRec = UITapGestureRecognizer(target: self, action: "buttonClicked:")
+                let buttonClick : UIButton = UIButton(frame : levelThumbFrame)
+                let tapRec = UITapGestureRecognizer(target: self, action: "buttonClicked:")
                 tapRec.numberOfTapsRequired = 1
                 buttonClick.tag = pageNumber! * 16 + j * 4 + i
                 buttonClick.addGestureRecognizer(tapRec)
@@ -108,16 +108,16 @@ class ListViewController: UIViewController  {
             if(!levelData.isLocked()){
                 imageNamed = levelData.picture
             }
-            var converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
+            let converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
 
-            var levelThumbnail = ImageManager.loadScaledImage(forList: imageNamed, Height: Int(converter.mHeight * 0.85))
+            let levelThumbnail = ImageManager.loadScaledImage(forList: imageNamed, Height: Int(converter.mHeight * 0.85))
             imageView.image = levelThumbnail
 
         }
     }
     
     func buttonClicked(tapRec : UITapGestureRecognizer ){
-        println("button clicked \(tapRec.view?.tag)")
+        print("button clicked \(tapRec.view?.tag)")
         if(!LevelManager.getLevel(tapRec.view!.tag).isLocked()){
         performSegueWithIdentifier("levelStart", sender: tapRec.view?.tag)
         }

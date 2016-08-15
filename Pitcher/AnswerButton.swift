@@ -45,7 +45,7 @@ class AnswerButton: UIView {
         
         super.init(frame: frame)
         
-        var gesRec = UITapGestureRecognizer(target: self, action: "clicked")
+        let gesRec = UITapGestureRecognizer(target: self, action: #selector(AnswerButton.clicked))
         self.addGestureRecognizer(gesRec)
     }
 
@@ -59,8 +59,8 @@ class AnswerButton: UIView {
     
     
     func clearAnswerButton(keyButton : KeyButton){
-        println("clear answer button \(AnswerButton.counter++) \(state == .Cheated) \(keyButton.state == KeyState.Removed) \(keyButton.index) \(keyButtonIndex) ")
-        var dointToButton = keyButton
+        print("clear answer button \(AnswerButton.counter+=1) \(state == .Cheated) \(keyButton.state == KeyState.Removed) \(keyButton.index) \(keyButtonIndex) ")
+        let dointToButton = keyButton
         
         if(keyButton.state == .Removed){
             return;

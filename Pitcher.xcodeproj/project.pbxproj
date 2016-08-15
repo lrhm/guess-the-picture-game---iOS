@@ -29,6 +29,7 @@
 		61C6EC901B4B4D69005CFDAB /* KeyButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6EC8F1B4B4D69005CFDAB /* KeyButtonDelegate.swift */; };
 		61C90C5C1B46D1270004F23E /* UIImage+ResizeMagick.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C90C5B1B46D1270004F23E /* UIImage+ResizeMagick.m */; };
 		61CBB9411B44258100AB2CCF /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CBB9401B44258100AB2CCF /* ImageManager.swift */; };
+		61EB4AC71D62195800BE30AB /* Haneke in Resources */ = {isa = PBXBuildFile; fileRef = 61EB4AC61D62195800BE30AB /* Haneke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		61C90C5A1B46D1270004F23E /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
 		61C90C5B1B46D1270004F23E /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
 		61CBB9401B44258100AB2CCF /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		61EB4AC61D62195800BE30AB /* Haneke */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Haneke; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		619537501B3C4C8500390AAE /* Pitcher */ = {
 			isa = PBXGroup;
 			children = (
+				61EB4AC61D62195800BE30AB /* Haneke */,
 				613511B41B497CB600223379 /* Keyboard */,
 				61A20F211B48B2E3003A3807 /* SliderView.swift */,
 				619537531B3C4C8500390AAE /* AppDelegate.swift */,
@@ -258,6 +261,7 @@
 			files = (
 				6195375D1B3C4C8500390AAE /* Main.storyboard in Resources */,
 				619537621B3C4C8500390AAE /* LaunchScreen.xib in Resources */,
+				61EB4AC71D62195800BE30AB /* Haneke in Resources */,
 				6195375F1B3C4C8500390AAE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

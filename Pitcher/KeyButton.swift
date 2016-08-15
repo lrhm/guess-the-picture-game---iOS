@@ -43,7 +43,7 @@ class KeyButton: UIView {
         imageView.contentMode = UIViewContentMode.ScaleToFill
         textView.text = String( character)
         movingTextView.text = String(character)
-        var gesRec = UITapGestureRecognizer(target: self, action: "clicked")
+        var gesRec = UITapGestureRecognizer(target: self, action: #selector(KeyButton.clicked))
         self.addGestureRecognizer(gesRec)
         
         keyboardView.addSubview(imageView)
