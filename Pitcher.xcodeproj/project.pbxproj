@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613511B81B497CF800223379 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B71B497CF800223379 /* KeyboardViewDelegate.swift */; };
+		613511BA1B497D2100223379 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B91B497D2100223379 /* AnswerButton.swift */; };
+		6161591C1B497A8E00D280A7 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591B1B497A8E00D280A7 /* LevelViewController.swift */; };
+		6161591E1B497AA800D280A7 /* KeyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591D1B497AA800D280A7 /* KeyButton.swift */; };
+		616159201B497AB600D280A7 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591F1B497AB600D280A7 /* KeyboardView.swift */; };
+		618112211B4C7620009F2B39 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 618112201B4C7620009F2B39 /* UIView+Toast.m */; };
 		619537541B3C4C8500390AAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537531B3C4C8500390AAE /* AppDelegate.swift */; };
 		619537561B3C4C8500390AAE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537551B3C4C8500390AAE /* RootViewController.swift */; };
-		619537581B3C4C8500390AAE /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537571B3C4C8500390AAE /* DataViewController.swift */; };
+		619537581B3C4C8500390AAE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537571B3C4C8500390AAE /* ListViewController.swift */; };
 		6195375A1B3C4C8500390AAE /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537591B3C4C8500390AAE /* ModelController.swift */; };
 		6195375D1B3C4C8500390AAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6195375B1B3C4C8500390AAE /* Main.storyboard */; };
 		6195375F1B3C4C8500390AAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6195375E1B3C4C8500390AAE /* Images.xcassets */; };
 		619537621B3C4C8500390AAE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619537601B3C4C8500390AAE /* LaunchScreen.xib */; };
 		6195376E1B3C4C8500390AAE /* PitcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195376D1B3C4C8500390AAE /* PitcherTests.swift */; };
+		619537781B3C5E7000390AAE /* ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537771B3C5E7000390AAE /* ScrollViewDelegate.swift */; };
+		6195377A1B3C678D00390AAE /* SizeConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537791B3C678D00390AAE /* SizeConvertor.swift */; };
+		619DF5811B3C6C4000F5F153 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619DF5801B3C6C4000F5F153 /* LevelData.swift */; };
+		619DF5831B3C6E6000F5F153 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619DF5821B3C6E6000F5F153 /* LevelManager.swift */; };
+		61A20F221B48B2E3003A3807 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A20F211B48B2E3003A3807 /* SliderView.swift */; };
+		61C6EC901B4B4D69005CFDAB /* KeyButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6EC8F1B4B4D69005CFDAB /* KeyButtonDelegate.swift */; };
+		61C90C5C1B46D1270004F23E /* UIImage+ResizeMagick.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C90C5B1B46D1270004F23E /* UIImage+ResizeMagick.m */; };
+		61CBB9411B44258100AB2CCF /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CBB9401B44258100AB2CCF /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,11 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		613511B71B497CF800223379 /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
+		613511B91B497D2100223379 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		6161591B1B497A8E00D280A7 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		6161591D1B497AA800D280A7 /* KeyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyButton.swift; sourceTree = "<group>"; };
+		6161591F1B497AB600D280A7 /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		6181121F1B4C7620009F2B39 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		618112201B4C7620009F2B39 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		6195374E1B3C4C8500390AAE /* Pitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619537521B3C4C8500390AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619537531B3C4C8500390AAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619537551B3C4C8500390AAE /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		619537571B3C4C8500390AAE /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		619537571B3C4C8500390AAE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		619537591B3C4C8500390AAE /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		6195375C1B3C4C8500390AAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6195375E1B3C4C8500390AAE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -40,6 +61,16 @@
 		619537671B3C4C8500390AAE /* PitcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6195376C1B3C4C8500390AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6195376D1B3C4C8500390AAE /* PitcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitcherTests.swift; sourceTree = "<group>"; };
+		619537771B3C5E7000390AAE /* ScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewDelegate.swift; sourceTree = "<group>"; };
+		619537791B3C678D00390AAE /* SizeConvertor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeConvertor.swift; sourceTree = "<group>"; };
+		619DF5801B3C6C4000F5F153 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		619DF5821B3C6E6000F5F153 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
+		61A20F211B48B2E3003A3807 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		61C6EC8F1B4B4D69005CFDAB /* KeyButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyButtonDelegate.swift; sourceTree = "<group>"; };
+		61C90C591B46D1260004F23E /* Pitcher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pitcher-Bridging-Header.h"; sourceTree = "<group>"; };
+		61C90C5A1B46D1270004F23E /* UIImage+ResizeMagick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeMagick.h"; sourceTree = "<group>"; };
+		61C90C5B1B46D1270004F23E /* UIImage+ResizeMagick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeMagick.m"; sourceTree = "<group>"; };
+		61CBB9401B44258100AB2CCF /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +91,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613511B41B497CB600223379 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6161591D1B497AA800D280A7 /* KeyButton.swift */,
+				6161591F1B497AB600D280A7 /* KeyboardView.swift */,
+				613511B71B497CF800223379 /* KeyboardViewDelegate.swift */,
+				613511B91B497D2100223379 /* AnswerButton.swift */,
+				61C6EC8F1B4B4D69005CFDAB /* KeyButtonDelegate.swift */,
+			);
+			name = Keyboard;
+			sourceTree = "<group>";
+		};
 		619537451B3C4C8500390AAE = {
 			isa = PBXGroup;
 			children = (
@@ -81,14 +124,27 @@
 		619537501B3C4C8500390AAE /* Pitcher */ = {
 			isa = PBXGroup;
 			children = (
+				613511B41B497CB600223379 /* Keyboard */,
+				61A20F211B48B2E3003A3807 /* SliderView.swift */,
 				619537531B3C4C8500390AAE /* AppDelegate.swift */,
 				619537551B3C4C8500390AAE /* RootViewController.swift */,
-				619537571B3C4C8500390AAE /* DataViewController.swift */,
+				619537571B3C4C8500390AAE /* ListViewController.swift */,
 				619537591B3C4C8500390AAE /* ModelController.swift */,
 				6195375B1B3C4C8500390AAE /* Main.storyboard */,
 				6195375E1B3C4C8500390AAE /* Images.xcassets */,
 				619537601B3C4C8500390AAE /* LaunchScreen.xib */,
 				619537511B3C4C8500390AAE /* Supporting Files */,
+				619537771B3C5E7000390AAE /* ScrollViewDelegate.swift */,
+				619537791B3C678D00390AAE /* SizeConvertor.swift */,
+				619DF5801B3C6C4000F5F153 /* LevelData.swift */,
+				619DF5821B3C6E6000F5F153 /* LevelManager.swift */,
+				61CBB9401B44258100AB2CCF /* ImageManager.swift */,
+				61C90C5A1B46D1270004F23E /* UIImage+ResizeMagick.h */,
+				61C90C5B1B46D1270004F23E /* UIImage+ResizeMagick.m */,
+				61C90C591B46D1260004F23E /* Pitcher-Bridging-Header.h */,
+				6161591B1B497A8E00D280A7 /* LevelViewController.swift */,
+				6181121F1B4C7620009F2B39 /* UIView+Toast.h */,
+				618112201B4C7620009F2B39 /* UIView+Toast.m */,
 			);
 			path = Pitcher;
 			sourceTree = "<group>";
@@ -162,11 +218,13 @@
 		619537461B3C4C8500390AAE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = TreeCo;
 				TargetAttributes = {
 					6195374D1B3C4C8500390AAE = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = Z39ATFXU5B;
 					};
 					619537661B3C4C8500390AAE = {
 						CreatedOnToolsVersion = 6.3;
@@ -218,10 +276,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619DF5831B3C6E6000F5F153 /* LevelManager.swift in Sources */,
+				613511BA1B497D2100223379 /* AnswerButton.swift in Sources */,
 				619537561B3C4C8500390AAE /* RootViewController.swift in Sources */,
+				619DF5811B3C6C4000F5F153 /* LevelData.swift in Sources */,
+				6161591E1B497AA800D280A7 /* KeyButton.swift in Sources */,
+				6161591C1B497A8E00D280A7 /* LevelViewController.swift in Sources */,
+				61CBB9411B44258100AB2CCF /* ImageManager.swift in Sources */,
+				619537781B3C5E7000390AAE /* ScrollViewDelegate.swift in Sources */,
 				6195375A1B3C4C8500390AAE /* ModelController.swift in Sources */,
-				619537581B3C4C8500390AAE /* DataViewController.swift in Sources */,
+				613511B81B497CF800223379 /* KeyboardViewDelegate.swift in Sources */,
+				61C6EC901B4B4D69005CFDAB /* KeyButtonDelegate.swift in Sources */,
+				618112211B4C7620009F2B39 /* UIView+Toast.m in Sources */,
+				61A20F221B48B2E3003A3807 /* SliderView.swift in Sources */,
+				619537581B3C4C8500390AAE /* ListViewController.swift in Sources */,
+				61C90C5C1B46D1270004F23E /* UIImage+ResizeMagick.m in Sources */,
 				619537541B3C4C8500390AAE /* AppDelegate.swift in Sources */,
+				616159201B497AB600D280A7 /* KeyboardView.swift in Sources */,
+				6195377A1B3C678D00390AAE /* SizeConvertor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +356,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -350,9 +423,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "irPulse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pitcher/Pitcher-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -360,9 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "irPulse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pitcher/Pitcher-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -380,6 +462,7 @@
 				);
 				INFOPLIST_FILE = PitcherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "irPulse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitcher.app/Pitcher";
 			};
@@ -395,6 +478,7 @@
 				);
 				INFOPLIST_FILE = PitcherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "irPulse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitcher.app/Pitcher";
 			};
@@ -419,6 +503,7 @@
 				619537731B3C4C8500390AAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		619537741B3C4C8500390AAE /* Build configuration list for PBXNativeTarget "PitcherTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +512,7 @@
 				619537761B3C4C8500390AAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
