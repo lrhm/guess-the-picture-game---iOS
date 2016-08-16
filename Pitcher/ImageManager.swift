@@ -13,83 +13,37 @@ import UIKit
 struct ImageManager{
     
     
-    static let cache = Shared.imageCache
-    static let formatList = "Format_List"
-    static let formatNone = "Format_None"
+ //   static let cache = Shared.imageCache
+  //  static let formatList = "Format_List"
+   // static let formatNone = "Format_None"
     
     static func initCaches(){
         
-        let listFormat = Format<UIImage>(name: formatList, diskCapacity: 80 * 1024 * 1024 , transform: nil)
-        cache.addFormat(listFormat)
+    //    let listFormat = Format<UIImage>(name: formatList, diskCapacity: 80 * 1024 * 1024 , transform: nil)
+    //   cache.addFormat(listFormat)
         
         
     }
     
     static   func loadScaledImage(normal name : String ,Width width : CGFloat ,Height height : CGFloat , Format format : String) -> UIImage{
         
-        if format != formatNone{
-            var answer : UIImage? = nil
-            
-            cache.fetch(key: name, formatName: format, failure: nil, success: {
-                data in
-                answer = data
-            })
-            
-            
-            if(answer != nil){
-                return answer!;
-            }
-        }
         var temp = UIImage(named: name)
         var reSized =    reSizeImage(normal: temp!, Width: width, Height: height)
-        if(formatNone != format){
-            cache.set(value: reSized, key: name, formatName: format, success: nil)
-        }
+        
         return reSized
     }
     static   func loadScaledImage(normal name : String ,Width width : Int ,Height height : Int , Format format : String) -> UIImage{
         
-        if format != formatNone{
-            var answer : UIImage? = nil
-            
-            cache.fetch(key: name, formatName: format, failure: nil, success: {
-                data in
-                answer = data
-            })
-            
-            
-            if(answer != nil){
-                return answer!;
-            }
-        }
+        
         var temp = UIImage(named: name)
         var reSized =    reSizeImage(normal: temp!, Width: width, Height: height)
-        if(formatNone != format){
-            cache.set(value: reSized, key: name, formatName: format, success: nil)
-        }
+        
         return reSized
     }
     
     static func loadScaledImage(forList name: String ,Height height : Int ) -> UIImage{
-        let format = formatList
-        if format != formatNone{
-            var answer : UIImage? = nil
-            cache.fetch(key: name, formatName: format, failure: nil, success: {
-                data in
-                answer = data
-            })
-            if(answer != nil){
-                return answer!;
-            }
-        }
         var temp = UIImage(named: name)
         var reSized =  temp!.resizedImageByHeight(UInt(height))
-        if(formatNone != format){
-            
-            cache.set(value: reSized, key: name, formatName: format, success: { data in
-            })
-            
-        }
         return reSized
     }
     /*

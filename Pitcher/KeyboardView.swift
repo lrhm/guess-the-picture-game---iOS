@@ -54,18 +54,19 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         if(splited.count == 1){
 
             
-            let array : [Character] = Array.init(arrayLiteral: level.answer)
-            initAnswerButtonsInLine(0, converter: converter, array: Array(arrayLiteral : level.answer), yOffset: (frame.height / 4 - converter.mHeight/2 ))
+            
+            initAnswerButtonsInLine(0, converter: converter, string: level.answer, yOffset: (frame.height / 4 - converter.mHeight/2 ))
         }
         else{
-            initAnswerButtonsInLine(0, converter: converter, array: Array(splited[0]), yOffset: (frame.height / 4 - converter.mHeight  ))
-            initAnswerButtonsInLine(splited[0].length, converter: converter, array: Array(splited[1]), yOffset: (frame.height / 4  + DeviceDimensions.height * 0.001 ))
+            initAnswerButtonsInLine(0, converter: converter, string: (splited[0]), yOffset: (frame.height / 4 - converter.mHeight  ))
+            initAnswerButtonsInLine(splited[0].length, converter: converter, string: (splited[1]), yOffset: (frame.height / 4  + DeviceDimensions.height * 0.001 ))
             
         }
         
     }
     
-    func initAnswerButtonsInLine(startingIndex : Int , converter : SizeConvertor , array : [Character] , yOffset : CGFloat){
+    func initAnswerButtonsInLine(startingIndex : Int , converter : SizeConvertor , string : String , yOffset : CGFloat){
+        var array = Array(string.characters)
         let middle = DeviceDimensions.widht/2
         var xAllwaysOffset = DeviceDimensions.widht * 0.002
         let xOffset = DeviceDimensions.widht * 0.001
@@ -157,26 +158,31 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
         let xOffsetAllways = (  DeviceDimensions.widht - xOffset  -  CGFloat(7) * ( converter.mWidth  + xOffset)
             )/2
         
-        var temp = Array(arrayLiteral: level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil).stringByReplacingOccurrencesOfString(" ", withString: "", options: .LiteralSearch, range: nil))
-        var allArray = Array(allStrings)
+        var temp : [Character] = Array( (level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil).stringByReplacingOccurrencesOfString(" ", withString: "", options: .LiteralSearch, range: nil)).characters )
+        print("original temp is " + String(temp))
+        var allArray = Array(allStrings.characters)
         srand(UInt32(level.levelID))
         
         
         while(temp.count != 21){
             let r = Int(rand()) % allArray.count
-            temp.append(allArray.removeAtIndex(r))
+            let index = allArray.startIndex.advancedBy(r)
+            temp.append((allArray.removeAtIndex(index)))
         }
         
         var shuffledArray = [Character]()
         while(temp.count != 0){
+            print(String(temp) + " is temp ")
             let r = Int(rand()) % temp.count
-            
-            shuffledArray.append(temp.removeAtIndex(r))
+            let index = temp.startIndex.advancedBy(r)
+            let selectedChar = temp.removeAtIndex(index)
+            print(selectedChar)
+            shuffledArray.append((selectedChar))
         }
         
         shuffledString = String(shuffledArray)
         
-        remainingAnswer = Array(level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil))
+        remainingAnswer = Array(level.answer.stringByReplacingOccurrencesOfString(".", withString: "", options: .LiteralSearch, range: nil).characters)
         
         for i in 0...2{
             for j in 0...6{
@@ -426,5 +432,5 @@ class KeyboardView: UIView  , KeyButtonDelegate , AnswerButtonDelegate{
     
 }
 extension String {
-    var length: Int { return count(self)         }  // Swift 1.2
+    var length: Int { return self.characters.count        }  // Swift 1.2
 }
