@@ -20,6 +20,9 @@ class ListViewController: UIViewController  {
         if(rootVC == nil){
             print("rootVC is nil")
         }
+        
+
+        
         self.view.gestureRecognizers = rootVC?.gestureRecognizers
         let converter = SizeConvertor(fromHeight: DeviceDimensions.height * 0.1, baseHeight: 211, baseWidth: 211)
         let cageImage = ImageManager.loadScaledImage(forList: "cage", Height: Int(converter.mHeight))

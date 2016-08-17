@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		612609181D64471500915309 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 612609171D64471500915309 /* levels.json */; };
 		613511B81B497CF800223379 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B71B497CF800223379 /* KeyboardViewDelegate.swift */; };
 		613511BA1B497D2100223379 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B91B497D2100223379 /* AnswerButton.swift */; };
 		6161591C1B497A8E00D280A7 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591B1B497A8E00D280A7 /* LevelViewController.swift */; };
 		6161591E1B497AA800D280A7 /* KeyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591D1B497AA800D280A7 /* KeyButton.swift */; };
 		616159201B497AB600D280A7 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161591F1B497AB600D280A7 /* KeyboardView.swift */; };
-		617AD80A1D643AB200A56560 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 617AD8091D643AB200A56560 /* levels.json */; };
 		618112211B4C7620009F2B39 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 618112201B4C7620009F2B39 /* UIView+Toast.m */; };
 		619537541B3C4C8500390AAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537531B3C4C8500390AAE /* AppDelegate.swift */; };
 		619537561B3C4C8500390AAE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619537551B3C4C8500390AAE /* RootViewController.swift */; };
@@ -44,12 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		612609161D64444D00915309 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		612609171D64471500915309 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		613511B71B497CF800223379 /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
 		613511B91B497D2100223379 /* AnswerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		6161591B1B497A8E00D280A7 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		6161591D1B497AA800D280A7 /* KeyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyButton.swift; sourceTree = "<group>"; };
 		6161591F1B497AB600D280A7 /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
-		617AD8091D643AB200A56560 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = levels.json; path = data/levels.json; sourceTree = "<group>"; };
 		6181121F1B4C7620009F2B39 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		618112201B4C7620009F2B39 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		6195374E1B3C4C8500390AAE /* Pitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,14 +128,6 @@
 			name = Keyboard;
 			sourceTree = "<group>";
 		};
-		617AD8081D643A8600A56560 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				617AD8091D643AB200A56560 /* levels.json */,
-			);
-			name = data;
-			sourceTree = "<group>";
-		};
 		619537451B3C4C8500390AAE = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +151,6 @@
 		619537501B3C4C8500390AAE /* Pitcher */ = {
 			isa = PBXGroup;
 			children = (
-				617AD8081D643A8600A56560 /* data */,
 				613511B41B497CB600223379 /* Keyboard */,
 				61A20F211B48B2E3003A3807 /* SliderView.swift */,
 				619537531B3C4C8500390AAE /* AppDelegate.swift */,
@@ -180,6 +172,8 @@
 				6161591B1B497A8E00D280A7 /* LevelViewController.swift */,
 				6181121F1B4C7620009F2B39 /* UIView+Toast.h */,
 				618112201B4C7620009F2B39 /* UIView+Toast.m */,
+				612609161D64444D00915309 /* MyPlayground.playground */,
+				612609171D64471500915309 /* levels.json */,
 			);
 			path = Pitcher;
 			sourceTree = "<group>";
@@ -297,7 +291,7 @@
 				6195375D1B3C4C8500390AAE /* Main.storyboard in Resources */,
 				619537621B3C4C8500390AAE /* LaunchScreen.xib in Resources */,
 				6195375F1B3C4C8500390AAE /* Images.xcassets in Resources */,
-				617AD80A1D643AB200A56560 /* levels.json in Resources */,
+				612609181D64471500915309 /* levels.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

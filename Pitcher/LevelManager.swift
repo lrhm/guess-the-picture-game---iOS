@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 struct LevelManager {
     
@@ -77,13 +78,26 @@ struct LevelManager {
         if isInitilized{
             return
         }
-        
-        
-        
-        for i in 0...303{
-            var level = LevelData(id: i, answer: "abc", picture: "level_\(i)");
-            list.append(level)
+        if let path = NSBundle.mainBundle().pathForResource("levels", ofType: "json") {
+            do {
+                var text =  NSData(contentsOfFile: path)
+                let jsonArray = JSON(data: text!)["levels"].arrayValue
+                print(jsonArray.count)
+                var i = 0
+                for item in jsonArray{
+                    var level = LevelData(id: i , answer: item["ans"].stringValue , picture: item["img"].stringValue)
+                    list.append(level)
+                    i+=1
+                    
+                }
+                
+            }
+            catch{
+                print ("error in file")
+            }
         }
+        
+
         
         isInitilized = true
     }
