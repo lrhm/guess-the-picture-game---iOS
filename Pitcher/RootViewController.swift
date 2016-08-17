@@ -10,7 +10,7 @@ import UIKit
 class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScrollViewDelegate{
     
     var pageViewController: UIPageViewController?
-    //var coinBox : CoinView?
+    var coinBox : CoinView?
     var sliderBackground: UIImageView!
     var slider: SliderView!
     var scrollView : UIScrollView!
@@ -82,7 +82,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
         print("view will apeear")
         isInView = true
         animationTimer =  NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(RootViewController.rotateAnimation), userInfo: nil, repeats: true  )
-   //     self.coinBox?.updateText()
+        self.coinBox?.setCoinCount()
         super.viewWillAppear(animated)
     }
     
@@ -260,11 +260,13 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     
     func initCoinBox(){
         
-        _ = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
+        let converter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
+        print(converter)
+        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
         
-//        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
-//        
-//        self.view.addSubview(coinBox!)
+        self.view.addSubview(coinBox!)
+        
+        print("coinbox added")
         
         
         let logoConverter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.35 , baseHeight: 226, baseWidth: 512)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6123570F1D6477510084FFA3 /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6123570E1D6477510084FFA3 /* CoinView.swift */; };
 		612609181D64471500915309 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 612609171D64471500915309 /* levels.json */; };
 		613511B81B497CF800223379 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B71B497CF800223379 /* KeyboardViewDelegate.swift */; };
 		613511BA1B497D2100223379 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613511B91B497D2100223379 /* AnswerButton.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6123570E1D6477510084FFA3 /* CoinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
 		612609161D64444D00915309 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		612609171D64471500915309 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		613511B71B497CF800223379 /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				618112201B4C7620009F2B39 /* UIView+Toast.m */,
 				612609161D64444D00915309 /* MyPlayground.playground */,
 				612609171D64471500915309 /* levels.json */,
+				6123570E1D6477510084FFA3 /* CoinView.swift */,
 			);
 			path = Pitcher;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				61C6EC901B4B4D69005CFDAB /* KeyButtonDelegate.swift in Sources */,
 				618112211B4C7620009F2B39 /* UIView+Toast.m in Sources */,
 				61A20F221B48B2E3003A3807 /* SliderView.swift in Sources */,
+				6123570F1D6477510084FFA3 /* CoinView.swift in Sources */,
 				619537581B3C4C8500390AAE /* ListViewController.swift in Sources */,
 				61C90C5C1B46D1270004F23E /* UIImage+ResizeMagick.m in Sources */,
 				619537541B3C4C8500390AAE /* AppDelegate.swift in Sources */,
