@@ -14,8 +14,14 @@ class LevelViewController: UIViewController , KeyboardViewDelegate{
     @IBOutlet weak var backButton: UIButton!
     var keyboardView : KeyboardView!
     var level : LevelData?
+    var coinView : CoinView?
+    
+    @IBOutlet weak var background: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        initBG()
 
         var imageWidth = DeviceDimensions.widht * 0.9
         var converter = SizeConvertor(fromWidth: imageWidth, baseHeight: 300, baseWidth: 400)
@@ -25,12 +31,37 @@ class LevelViewController: UIViewController , KeyboardViewDelegate{
         self.view.addSubview(imageView)
         keyboardView = KeyboardView(frame: CGRect(x: 0, y: DeviceDimensions.height/2, width: DeviceDimensions.widht, height: DeviceDimensions.height/2), level: level!)
         keyboardView.keyboardViewDelegate = self
-        
+     
         
         self.view.addSubview(keyboardView!)
         
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    func initCoinBox(){
+        
+        let converter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
+        coinView = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
+        
+        self.view.addSubview(coinView!)
+        
+        
+    
+    }
+    
+    
+    func initBG(){
+//        let bgImageView = UIImageView(frame: self.view.bounds)
+        background.frame = self.view.bounds
+        background.contentMode = UIViewContentMode.Center
+        background.image = ImageManager.loadScaledImageByHeight("bg", height: Int(DeviceDimensions.height))
+        
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
