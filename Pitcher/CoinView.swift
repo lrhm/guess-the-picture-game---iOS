@@ -31,32 +31,24 @@ class CoinView: UIView {
     }
     
     var image : UIImageView?
-    var text : UITextView?
+    var text : UILabel?
     
     
     func initSubviews(frame: CGRect){
-        print("initilize coinveView subviews \(frame.width) \(frame.height)")
-        image = UIImageView(frame: frame)
-        print("1")
-
+        image = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        
         image?.image = ImageManager.loadScaledImageByWidth("coins", width: Int(frame.width))
         
-        print("2")
 
-        text = UITextView(frame: frame)
-        text?.textAlignment = .Right
-        
-        print("3")
+        text = UILabel(frame:
+            CGRect(x: frame.width * 0.1 , y: 0, width: frame.size.width, height: frame.size.height))
+        text?.textAlignment = .Center
 
         
         addSubview(image!)
-        
-        print("4")
 
-        text?.backgroundColor = nil
         addSubview(text!)
         
-        print("initilzed coinview")
         
     }
     

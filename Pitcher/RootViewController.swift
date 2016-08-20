@@ -261,8 +261,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate , UIScr
     func initCoinBox(){
         
         let converter = SizeConvertor(fromWidth: DeviceDimensions.widht * 0.3 , baseHeight: 123, baseWidth: 327)
-        print(converter)
-        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.04   , width: converter.mWidth   , height: converter.mHeight))
+        coinBox = CoinView(frame: CGRect(x: 0  , y: DeviceDimensions.height * 0.08   , width: converter.mWidth   , height: converter.mHeight))
         
         self.view.addSubview(coinBox!)
         
